@@ -82,6 +82,7 @@ export default function EventPage() {
 				setIsSubmitting(false);
 			}
 		} catch (err) {
+			console.log(err);
 			alert("Sorry, there was a problem sending your request.");
 			setIsSubmitting(false);
 		}
