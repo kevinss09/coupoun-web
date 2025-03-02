@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { events } from "@/data/event";
 import Link from "next/link";
-import { useRouter, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 
 export default function EventPage() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
@@ -12,7 +12,6 @@ export default function EventPage() {
 	const [place, setPlace] = useState("");
 	const [preferredTime, setPreferredTime] = useState("");
 	const [remainingCoupons, setRemainingCoupons] = useState(0);
-	const router = useRouter();
 	const params = useParams();
 
 	const eventId = params.eventId;
@@ -82,7 +81,7 @@ export default function EventPage() {
 				alert("Sorry, there was a problem sending your request.");
 				setIsSubmitting(false);
 			}
-		} catch (error) {
+		} catch (err) {
 			alert("Sorry, there was a problem sending your request.");
 			setIsSubmitting(false);
 		}
@@ -96,7 +95,8 @@ export default function EventPage() {
 						Sampai Ketemu disana ya!
 					</h1>
 					<p className="text-xl mb-8 text-black">
-						Permintaan untuk "{event.title}" telah dikirim ke sayangmu!
+						Permintaan untuk &ldquo;{event.title}&rdquo; telah dikirim ke
+						sayangmu!
 					</p>
 					<Link
 						href="/"
